@@ -93,7 +93,9 @@ app.get("/sunlight/all", (req, res) => {
   res.json(rawData);
 });
 
-app.get("/health", (req, res) => res.send("OK"));
+app.route("/health")
+  .get((req, res) => res.send("OK"))
+  .head((req, res) => res.sendStatus(200));
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
